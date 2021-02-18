@@ -2,25 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EmailVerifies;
-use App\Models\Users;
+use App\Models\Rs;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Hash;
 
 class TestController extends Controller
 {
     public function test(Request $request)
     {
-        $ucre = Users::create([
-            "username" => "呵呵呵",
-            "password" => "sssssss",
-        ]);
-        $newu =  new Users;
-        $newu->username = "哈哈哈";
-        $newu->password = "ppppppp";
-        $newu->save();
-        return [
-            $ucre,
-            $newu
-        ];
+        return 123;
     }
 }

@@ -14,7 +14,8 @@ class CreateEmailVerifiesTable extends Migration
     public function up()
     {
         Schema::create('email_verifies', function (Blueprint $table) {
-            $table->string("qq_email");
+            $table->id();
+            $table->string("email");
             $table->integer("code");
             $table->timestamps();
         });

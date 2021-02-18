@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SeparateRules extends Model
+class FragmentPoolNode extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    protected $primaryKey = 'fragment_pool_node_id_m';
 }

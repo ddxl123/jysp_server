@@ -10,8 +10,8 @@ class CreateRsTable extends Migration
 
     public function x_id_ms(Blueprint $table, string $x)
     {
-        $table->bigInteger($x . "_id_m");
-        $table->char($x . "_id_s", 20);
+        $table->bigInteger($x . "_id_m")->nullable(true);
+        $table->char($x . "_id_s", 20)->nullable(true);
     }
     /**
      * Run the migrations.
