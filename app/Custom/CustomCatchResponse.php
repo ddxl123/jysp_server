@@ -16,7 +16,12 @@ class CustomCatchResponse
         //         "data" => $data,
         //     ]
         // );
-        var_dump($code);
-        return $th;
+        // var_dump($code);
+        return response(
+            [
+                "code" => $code,
+                "data" => $data,
+            ]
+        );
     }
 }

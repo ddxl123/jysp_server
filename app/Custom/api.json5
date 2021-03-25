@@ -1,0 +1,23 @@
+{
+    code: 301,
+    data: [
+        {
+            fragment_pool_node_id: "6", // not null
+            pool_type: 9, // not null
+            node_type: 1,
+            branch: "3Z6ER",
+            name: "`N0)o",
+            created_at: null,
+            updated_at: null,
+        },
+        {
+            fragment_pool_node_id: "7", // not null
+            pool_type: 9, // not null
+            node_type: 2,
+            branch: "KGbbI",
+            name: "L`?:J",
+            created_at: null,
+            updated_at: null,
+        },
+    ],
+}

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFragmentsTable extends Migration
+class CreatePnPendingPoolNodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateFragmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fragments', function (Blueprint $table) {
+        Schema::create('pn_pending_pool_nodes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("creator_id")->nullable();
-            $table->string("text", 255);
+            $table->unsignedBigInteger("user_id")->nullable();
+            $table->unsignedTinyInteger("type")->nullable();
+            $table->string("name", 50)->nullable();
+            $table->string("position",50)->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateFragmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fragments');
+        Schema::dropIfExists('pn_pending_pool_nodes');
     }
 }

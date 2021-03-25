@@ -1,5 +1,6 @@
 <?php
 
+use Custom\CustomTableId;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,10 +15,10 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigInteger("user_id")->autoIncrement()->unsigned()->nullable(false);
+            $table->id();
             $table->char("username", 100)->nullable(false);
             $table->char("password", 100)->nullable(false);
-            $table->char("email", 20)->nullable(true)->unique();
+            $table->char("email", 100)->nullable(true)->unique();
             $table->timestamps();
         });
     }

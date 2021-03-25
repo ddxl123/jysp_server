@@ -28,8 +28,8 @@ class ByEmailController extends Controller
             $random =  rand(1000, 9999);
 
             // 发送 mail
-            Mail::raw('验证码：' . $random, function ($message) use ($request) {
-                $message->subject('登陆/注册验证码');
+            Mail::raw('验证码在标题上', function ($message) use ($request, $random) {
+                $message->subject('登陆/注册验证码：' . $random);
                 $message->to($request->email);
             });
         } catch (\Throwable $th) {

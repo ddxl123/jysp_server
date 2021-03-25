@@ -42,7 +42,8 @@
         },
         "files": [
             "app/Custom/CustomCatchResponse.php",
-            "app/Custom/CustomToken.php"
+            "app/Custom/CustomToken.php",
+            "app/Custom/CustomTableId.php"
         ]
     },
     "autoload-dev": {

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FragmentPoolNodesController;
+use App\Http\Controllers\Auth\FragmentPoolNodesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterAndLogin\ByEmailController;
 use App\Http\Controllers\RegisterAndLogin\RefreshTokenController;
@@ -22,7 +22,7 @@ use App\Http\Controllers\TestController;
 // });
 
 
-Route::get('/test', [TestController::class, "test"])->middleware("auth:api");
+Route::get('/test', [TestController::class, "test"]);
 
 // 获取 token
 Route::post('/register_and_login/by_email/send_email', [ByEmailController::class, "send_email"]);
@@ -32,4 +32,4 @@ Route::post('/register_and_login/by_email/verify_email', [ByEmailController::cla
 Route::get('/refresh_token', [RefreshTokenController::class, "refresh_token"]);
 
 
-Route::get('/fragment_pool_nodes', [FragmentPoolNodesController::class, "fragment_pool_nodes"]);
+Route::get('/get_fragment_pool_nodes', [FragmentPoolNodesController::class, "get_fragment_pool_nodes"])->middleware("auth:api");
