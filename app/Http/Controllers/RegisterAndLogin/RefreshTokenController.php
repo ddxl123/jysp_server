@@ -22,7 +22,7 @@ class RefreshTokenController extends Controller
             );
         } catch (\Throwable $th) {
             // TODO: code:-3, data:null, ps:刷新 token 失败
-            return CustomCatchResponse::catch_response(-3, null, $th);
+            return CustomCatchResponse::catch_response(-3, $th);
         }
     }
 }

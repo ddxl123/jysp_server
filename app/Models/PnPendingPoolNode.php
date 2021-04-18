@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class PnPendingPoolNode extends Model
 {
     use HasFactory;
-    
+
     public $timestamps = false;
 }

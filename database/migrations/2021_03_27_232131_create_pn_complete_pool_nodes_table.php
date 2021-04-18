@@ -15,12 +15,18 @@ class CreatePnCompletePoolNodesTable extends Migration
     {
         Schema::create('pn_complete_pool_nodes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("user_id")->nullable();
-            $table->unsignedTinyInteger("type")->nullable();
-            $table->string("name", 50)->nullable();
-            $table->string("position", 50)->nullable();
+            $table->tinyInteger("type")->nullable();
+            $table->string("name")->nullable();
+            $table->string("position")->nullable();
+            $this->foreignKeys($table);
             $table->timestamps();
         });
+    }
+
+    public function foreignKeys(Blueprint $table)
+    {
+        $table->unsignedBigInteger("user_id")->nullable();
+        $table->unsignedBigInteger("used_raw_rule_id")->nullable();
     }
 
     /**

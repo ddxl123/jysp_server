@@ -14,6 +14,7 @@ class User extends Authenticatable
 
     public $timestamps = false;
 
+    protected $hidden = ["password"];
 
     // 生成 token：
     // 密码授权需要使用 username 和 password 两个字段值进行 token 的生成，

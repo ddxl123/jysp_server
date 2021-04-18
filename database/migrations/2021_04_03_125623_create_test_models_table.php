@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFragmentsTable extends Migration
+class CreateTestModelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateFragmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fragments', function (Blueprint $table) {
+        Schema::create('test_models', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("creator_id")->nullable();
-            $table->string("text", 255);
+            $table->text("content");
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateFragmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fragments');
+        Schema::dropIfExists('test_models');
     }
 }

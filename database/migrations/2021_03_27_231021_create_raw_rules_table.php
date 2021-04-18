@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePnMemoryPoolNodesTable extends Migration
+class CreateRawRulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreatePnMemoryPoolNodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pn_memory_pool_nodes', function (Blueprint $table) {
+        Schema::create('raw_rules', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("user_id")->nullable();
-            $table->unsignedTinyInteger("type")->nullable();
-            $table->string("name", 50)->nullable();
-            $table->string("position",50)->nullable();
+            $this->foreignKeys($table);
             $table->timestamps();
         });
+    }
+
+    public function foreignKeys(Blueprint $table)
+    {
+        $table->unsignedBigInteger("user_id")->nullable();
+        $table->unsignedBigInteger("raw_rule_id")->nullable();
     }
 
     /**
@@ -30,6 +33,6 @@ class CreatePnMemoryPoolNodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pn_memory_pool_nodes');
+        Schema::dropIfExists('raw_rules');
     }
 }

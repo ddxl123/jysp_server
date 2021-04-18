@@ -34,7 +34,7 @@ class ByEmailController extends Controller
             });
         } catch (\Throwable $th) {
             // TODO: code:100, data:null, ps:邮箱发送异常
-            return CustomCatchResponse::catch_response(100, null, $th);
+            return CustomCatchResponse::catch_response(100, $th);
         }
 
         // 邮箱发送成功
@@ -59,7 +59,7 @@ class ByEmailController extends Controller
             );
         } catch (\Throwable $th) {
             // TODO: code:101, data:null, ps:验证码存储异常
-            return CustomCatchResponse::catch_response(101, null, $th);
+            return CustomCatchResponse::catch_response(101, $th);
         }
     }
 
@@ -94,7 +94,7 @@ class ByEmailController extends Controller
             }
         } catch (\Throwable $th) {
             // TODO: code:201, data:null, ps:邮箱验证异常
-            return CustomCatchResponse::catch_response(201, null, $th);
+            return CustomCatchResponse::catch_response(201, $th);
         }
     }
 
@@ -128,7 +128,7 @@ class ByEmailController extends Controller
             // TODO: code:104, data:null, ps:邮箱格式检测异常
             // TODO: code:203, data:null, ps:邮箱格式检测异常
             $code = $num == 1 ? 104 : 203;
-            return CustomCatchResponse::catch_response($code, null, $th);
+            return CustomCatchResponse::catch_response($code, $th);
         }
     }
 
@@ -147,7 +147,7 @@ class ByEmailController extends Controller
             $count = $users->count();
         } catch (\Throwable $th) {
             // TODO: code:204, data:null, ps:数据库查找该 email 异常
-            return CustomCatchResponse::catch_response(204, null, $th);
+            return CustomCatchResponse::catch_response(204, $th);
         }
 
         // 若不存在，则创建一个新用户，并只响应 token
@@ -161,12 +161,12 @@ class ByEmailController extends Controller
                 $new_user->save();
             } catch (\Throwable $th) {
                 // TODO: code:205, data:null, ps:数据库创建新用户异常
-                return CustomCatchResponse::catch_response(205, null, $th);
+                return CustomCatchResponse::catch_response(205, $th);
             }
 
             // 生成 token
             try {
-                $tokenBody = CustomToken::create_token($new_user->user_id, $new_user->password);
+                $tokenBody = CustomToken::create_token($new_user->id, $new_user->password);
                 // TODO: code:206, data:{"access_token":string,"refresh_token":string}, ps:用户注册成功并只响应 token
                 return response(
                     [
@@ -179,7 +179,7 @@ class ByEmailController extends Controller
                 );
             } catch (\Throwable $th) {
                 // TODO: code:207, data:null, ps:生成 token 异常
-                return CustomCatchResponse::catch_response(207, null, $th);
+                return CustomCatchResponse::catch_response(207, $th);
             }
         }
 
@@ -190,7 +190,7 @@ class ByEmailController extends Controller
                 // 获取那一个
                 $old_user = $users[0];
                 // 生成 token
-                $tokenBody = CustomToken::create_token($old_user->user_id, $old_user->password);
+                $tokenBody = CustomToken::create_token($old_user->id, $old_user->password);
                 // TODO: code:208, data:{"access_token":string,"refresh_token":string}, ps:用户登陆成功并只响应 token
                 return response(
                     [
@@ -203,7 +203,7 @@ class ByEmailController extends Controller
                 );
             } catch (\Throwable $th) {
                 // TODO: code:209, data:null, ps:生成 token 异常
-                return CustomCatchResponse::catch_response(209, null, $th);
+                return CustomCatchResponse::catch_response(209, $th);
             }
         }
     }

@@ -8,7 +8,7 @@ class CustomCatchResponse
     /**
      * @return array $response
      */
-    public static function catch_response($code, $data, $th)
+    public static function catch_response($code,  $th)
     {
         // return response(
         //     [
@@ -20,7 +20,7 @@ class CustomCatchResponse
         return response(
             [
                 "code" => $code,
-                "data" => $data,
+                "err" => $th,
             ]
         );
     }

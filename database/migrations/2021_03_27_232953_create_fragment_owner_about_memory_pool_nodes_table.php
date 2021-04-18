@@ -15,11 +15,17 @@ class CreateFragmentOwnerAboutMemoryPoolNodesTable extends Migration
     {
         Schema::create('fragment_owner_about_memory_pool_nodes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("owner_id")->nullable();
-            $table->unsignedBigInteger("fragment_id")->nullable();
-            $table->unsignedBigInteger("memory_pool_node_id")->nullable();
+            $this->foreignKeys($table);
             $table->timestamps();
         });
+    }
+
+    public function foreignKeys(Blueprint $table)
+    {
+        $table->unsignedBigInteger("user_id")->nullable();
+        $table->unsignedBigInteger("pn_memory_pool_node_id")->nullable();
+        $table->unsignedBigInteger("fragment_owner_about_pending_pool_node_id")->nullable();
+        $table->unsignedBigInteger("using_raw_rule_id")->nullable();
     }
 
     /**
