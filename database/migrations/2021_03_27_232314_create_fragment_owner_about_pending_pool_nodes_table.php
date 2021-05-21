@@ -25,7 +25,7 @@ class CreateFragmentOwnerAboutPendingPoolNodesTable extends Migration
         $table->unsignedBigInteger("user_id")->nullable();
         $table->unsignedBigInteger("raw_fragment_id")->nullable();
         $table->unsignedBigInteger("pn_pending_pool_node_id")->nullable();
-        $table->unsignedBigInteger("recommend_raw_rule_id")->nullable();
+        $table->unsignedBigInteger("recommend_rule_id")->nullable();
     }
 
     /**
