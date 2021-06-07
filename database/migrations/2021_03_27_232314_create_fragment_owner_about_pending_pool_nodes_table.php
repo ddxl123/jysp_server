@@ -22,10 +22,10 @@ class CreateFragmentOwnerAboutPendingPoolNodesTable extends Migration
 
     public function foreignKeys(Blueprint $table)
     {
-        $table->unsignedBigInteger("user_id")->nullable();
-        $table->unsignedBigInteger("raw_fragment_id")->nullable();
-        $table->unsignedBigInteger("pn_pending_pool_node_id")->nullable();
-        $table->unsignedBigInteger("recommend_rule_id")->nullable();
+        $table->unsignedBigInteger("user_aiid")->nullable();
+        $table->unsignedBigInteger("raw_fragment_aiid")->nullable();
+        $table->unsignedBigInteger("pn_pending_pool_node_aiid")->nullable();
+        $table->unsignedBigInteger("recommend_rule_aiid")->nullable();
     }
 
     /**

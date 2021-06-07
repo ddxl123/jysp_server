@@ -13,6 +13,6 @@ class FragmentOwnerAboutRulePoolNode extends Model
 
     public function belongs_to_raw_rule()
     {
-        return $this->belongsTo(RawRule::class, "raw_rule_id", "id");
+        return $this->belongsTo(RawRule::class, "raw_rule_aiid", "id");
     }
 }

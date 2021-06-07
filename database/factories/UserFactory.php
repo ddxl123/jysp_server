@@ -22,7 +22,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        // $table->id("user_id");
+        // $table->id("user_aiid");
         // $table->char("username", 100)->nullable(false);
         // $table->char("password", 100)->nullable(false);
         // $table->char("email", 20)->nullable(true)->unique();

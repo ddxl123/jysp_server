@@ -17,7 +17,7 @@ class CreatePnMemoryPoolNodesTable extends Migration
             $table->id();
             $table->tinyInteger("type")->nullable();
             $table->string("name")->nullable();
-            $table->string("position")->nullable();
+            $table->string("box_position")->nullable();
             $this->foreignKeys($table);
             $table->timestamps();
         });
@@ -25,8 +25,8 @@ class CreatePnMemoryPoolNodesTable extends Migration
 
     public function foreignKeys(Blueprint $table)
     {
-        $table->unsignedBigInteger("user_id")->nullable();
-        $table->unsignedBigInteger("using_raw_rule_id")->nullable();
+        $table->unsignedBigInteger("user_aiid")->nullable();
+        $table->unsignedBigInteger("using_raw_rule_aiid")->nullable();
     }
 
     /**

@@ -14,6 +14,6 @@ class FragmentOwnerAboutPendingPoolNode extends Model
 
     public function belongs_to_raw_fragment()
     {
-        return $this->belongsTo(RawFragment::class, "raw_fragment_id", "id");
+        return $this->belongsTo(RawFragment::class, "raw_fragment_aiid", "id");
     }
 }

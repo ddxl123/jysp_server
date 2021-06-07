@@ -22,9 +22,9 @@ class CreateFragmentOwnerAboutRulePoolNodesTable extends Migration
 
     public function foreignKeys(Blueprint $table)
     {
-        $table->unsignedBigInteger("user_id")->nullable();
-        $table->unsignedBigInteger("raw_rule_id")->nullable();
-        $table->unsignedBigInteger("pn_rule_pool_node_id")->nullable();
+        $table->unsignedBigInteger("user_aiid")->nullable();
+        $table->unsignedBigInteger("raw_rule_aiid")->nullable();
+        $table->unsignedBigInteger("pn_rule_pool_node_aiid")->nullable();
     }
 
     /**

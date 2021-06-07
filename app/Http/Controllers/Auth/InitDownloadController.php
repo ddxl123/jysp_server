@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\FragmentOwnerAboutCompletePoolNode;
 use App\Models\FragmentOwnerAboutMemoryPoolNode;
 use App\Models\FragmentOwnerAboutPendingPoolNode;
+use App\Models\FragmentOwnerAboutRulePoolNode;
 use App\Models\PnCompletePoolNode;
 use App\Models\PnMemoryPoolNode;
 use App\Models\PnPendingPoolNode;
 use App\Models\PnRulePoolNode;
-use App\Models\RuleOwner;
 use Custom\CustomCatchResponse;
 use Illuminate\Http\Request;
 
@@ -38,7 +38,7 @@ class InitDownloadController extends Controller
     {
         try {
             $user = $request->user();
-            $queryResult = PnPendingPoolNode::query()->where("user_id", "=", $user->id)->get()->makeHidden("user_id")->all();
+            $queryResult = PnPendingPoolNode::query()->where("user_aiid", "=", $user->id)->get()->makeHidden("user_aiid")->all();
 
             // TODO: code:302, data:pending_pool_nodes, ps:
             return response()->json(
@@ -57,7 +57,7 @@ class InitDownloadController extends Controller
     {
         try {
             $user = $request->user();
-            $queryResult = PnMemoryPoolNode::query()->where("user_id", "=", $user->id)->get()->makeHidden("user_id")->all();
+            $queryResult = PnMemoryPoolNode::query()->where("user_aiid", "=", $user->id)->get()->makeHidden("user_aiid")->all();
 
             // TODO: code:304, data:memory_pool_nodes, ps:
             return response()->json(
@@ -76,7 +76,7 @@ class InitDownloadController extends Controller
     {
         try {
             $user = $request->user();
-            $queryResult = PnCompletePoolNode::query()->where("user_id", "=", $user->id)->get()->makeHidden("user_id")->all();
+            $queryResult = PnCompletePoolNode::query()->where("user_aiid", "=", $user->id)->get()->makeHidden("user_aiid")->all();
             // TODO: code:306, data:complete_pool_nodes, ps:
             return response()->json(
                 [
@@ -94,7 +94,7 @@ class InitDownloadController extends Controller
     {
         try {
             $user = $request->user();
-            $queryResult = PnRulePoolNode::query()->where("user_id", "=", $user->id)->get()->makeHidden("user_id")->all();
+            $queryResult = PnRulePoolNode::query()->where("user_aiid", "=", $user->id)->get()->makeHidden("user_aiid")->all();
             // TODO: code:308, data:rule_pool_nodes, ps:
             return response()->json(
                 [
@@ -112,7 +112,7 @@ class InitDownloadController extends Controller
     {
         try {
             $user = $request->user();
-            $queryResult = FragmentOwnerAboutPendingPoolNode::with("belongs_to_raw_fragment:id,title")->where("user_id", "=", $user->id)->get()->makeHidden(["user_id"])->all();
+            $queryResult = FragmentOwnerAboutPendingPoolNode::with("belongs_to_raw_fragment:id,title")->where("user_aiid", "=", $user->id)->get()->makeHidden(["user_aiid"])->all();
 
             // TODO: code:310, data:pending_pool_node_fragments, ps:
             return response()->json(
@@ -131,7 +131,7 @@ class InitDownloadController extends Controller
     {
         try {
             $user = $request->user();
-            $queryResult = FragmentOwnerAboutMemoryPoolNode::query()->where("user_id", "=", $user->id)->get()->makeHidden(["user_id"])->all();
+            $queryResult = FragmentOwnerAboutMemoryPoolNode::query()->where("user_aiid", "=", $user->id)->get()->makeHidden(["user_aiid"])->all();
 
             // TODO: code:312, data:memory_pool_node_fragments, ps:
             return response()->json(
@@ -150,7 +150,7 @@ class InitDownloadController extends Controller
     {
         try {
             $user = $request->user();
-            $queryResult = FragmentOwnerAboutCompletePoolNode::query()->where("user_id", "=", $user->id)->get()->makeHidden(["user_id"])->all();
+            $queryResult = FragmentOwnerAboutCompletePoolNode::query()->where("user_aiid", "=", $user->id)->get()->makeHidden(["user_aiid"])->all();
 
             // TODO: code:313, data:complete_pool_node_fragments, ps:
             return response()->json(
@@ -169,7 +169,7 @@ class InitDownloadController extends Controller
     {
         try {
             $user = $request->user();
-            $queryResult = RuleOwner::with("belongs_to_raw_rule:id")->where("user_id", "=", $user->id)->get()->makeHidden(["user_id"])->all();
+            $queryResult = FragmentOwnerAboutRulePoolNode::with("belongs_to_raw_rule:id")->where("user_aiid", "=", $user->id)->get()->makeHidden(["user_aiid"])->all();
 
             // TODO: code:315, data:rule_pool_node_fragments, ps:
             return response()->json(

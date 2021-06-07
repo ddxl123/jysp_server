@@ -22,8 +22,8 @@ class CreateRawRulesTable extends Migration
 
     public function foreignKeys(Blueprint $table)
     {
-        $table->unsignedBigInteger("user_id")->nullable();
-        $table->unsignedBigInteger("raw_rule_id")->nullable();
+        $table->unsignedBigInteger("user_aiid")->nullable();
+        $table->unsignedBigInteger("raw_rule_aiid")->nullable();
     }
 
     /**
